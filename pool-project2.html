@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title></title>
+</head>
+<style>
+    img {
+        position: absolute;
+        /*display: block;
+        
+        top: 0px;
+        left: 0px;
+        transition: all 1s;
+        width: 90vw;*/
+    }
+   
+    
+    .fadeCSS {
+            opacity:  1;
+            animation: fade 1.5s ease-in 1 forwards;
+            }
+            @keyframes fade {
+                to {
+                    opacity: 0;
+                }  
+            }
+    </style>
+<body>
+   <div> 
+  <img class="img1" src="img1.jpg">
+  <img class="img2" src="img2.jpg">
+  <img class="img3" src="img3.jpg">
+    </div>
+    
+    
+<script>
+let state = 'steam';
+
+let myImages = document.querySelectorAll('img');
+ let imgNumber = 2;
+
+    
+setInterval(swap3images, 4000)
+    
+function swap3images(){
+    console.log(imgNumber)
+   myImages[imgNumber].classList.add("fadeCSS")
+    
+    imgNumber--;
+    if(imgNumber < 0){
+        imgNumber=2;
+        myImages.forEach(removeClass)
+    }
+}
+    
+    function removeClass(img){
+        img.classList.remove("fadeCSS");
+    }
+</script>
+</body>
+</html>
